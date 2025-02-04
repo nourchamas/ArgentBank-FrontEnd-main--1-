@@ -11,6 +11,7 @@ function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+//La fonction logoutHandler() gère la déconnexion//
   const logoutHandler = () => {
     dispatch(logout());
     sessionStorage.clear();
@@ -27,6 +28,7 @@ function Header() {
         </Link>
         {isConnected ? (
           <div className="connected">
+           
             <Link to="/profile">
               <i className="fa-solid fa-2x fa-circle-user" />
               <p>{username}</p>

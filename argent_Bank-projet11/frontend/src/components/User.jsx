@@ -6,6 +6,7 @@ import { isValidName } from "../utils/regex.jsx";
 function User() {
   const token = useSelector((state) => state.auth.token);
   const userData = useSelector((state) => state.user.userData);
+  // Gestion des états avec useState//
   const [display, setDisplay] = useState(true);
   const [userName, setUserName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,6 +22,7 @@ function User() {
       setErrorMessage("");
     }
     try {
+     // Requête API pour modifier le username//
       const response = await fetch("http://localhost:3001/api/v1/user/profile", {
         method: "PUT",
         headers: {
@@ -32,8 +34,8 @@ function User() {
       if (response.ok) {
         const data = await response.json();
         const username = data.body.userName;
-        dispatch(updateUsername(username));
-        setDisplay(!display);
+        dispatch(updateUsername(username));// Met à jour Redux//
+        setDisplay(!display);// Retour en mode affichage//
       } else {
         console.log("Invalid Fields");
       }
@@ -70,6 +72,7 @@ function User() {
             </div>
             <div className="edit-input">
               <label htmlFor="firstname">First name:</label>
+              
               <input type="text" id="firstname" defaultValue={userData.firstname} disabled={true} />
             </div>
             <div className="edit-input">

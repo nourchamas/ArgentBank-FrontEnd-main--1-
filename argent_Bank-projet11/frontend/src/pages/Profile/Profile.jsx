@@ -6,13 +6,15 @@ import Account from "../../components/Account.jsx";
 import AccountCardData from "../../data/AccountCardData.json";
 
 function UserProfile() {
+  //Vérifie si un token existe avant d'envoyer la requête//
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
-
+//Effet useEffect pour récupérer le profil utilisateur //
   useEffect(() => {
     if (token) {
       const userData = async () => {
         try {
+         // Fait une requête POST à l'API pour récupérer les infos du profil//
           const response = await fetch("http://localhost:3001/api/v1/user/profile", {
             method: "POST",
             headers: {
@@ -44,11 +46,13 @@ function UserProfile() {
       userData();
     }
   }, [dispatch, token]);
-
+  // Stocke les informations dans Redux// 
+  // Affiche une liste de comptes bancaires 
   return (
     <div className="profile-page">
       <main className="bg-dark">
-        <User />
+    
+   <User />
         {AccountCardData.map((data) => (
           <Account key={data.id} title={data.title} amount={data.amount} description={data.description} />
         ))}

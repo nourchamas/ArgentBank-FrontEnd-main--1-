@@ -5,18 +5,19 @@ import { isValidEmail, isValidPassword } from "../../utils/regex";
 import { signupFailed, signupSuccess } from "../../redux/actions/auth.actions";
 
 export default function Signup() {
+  //Stocke les informations saisies par l’utilisateur//
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
-
   const [rememberMe, setRememberMe] = useState(false);
+  //Stocke un message d’erreur si la validation échoue//
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+// Empêche le rechargement de la page avec event.preventDefault()//
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage("");
@@ -31,6 +32,8 @@ export default function Signup() {
       return;
     }
     try {
+      //Envoie une requête POST à l’API avec les données utilisateur//
+      //pour créer un compte utilisateur//
       const response = await fetch("http://localhost:3001/api/v1/user/signup", {
         method: "POST",
         headers: {
@@ -48,7 +51,7 @@ export default function Signup() {
       console.error(error);
     }
   };
-
+// Redirige vers /login en cas de succès//
   return (
     <div className="signin-page">
       <main className="bg-dark">
