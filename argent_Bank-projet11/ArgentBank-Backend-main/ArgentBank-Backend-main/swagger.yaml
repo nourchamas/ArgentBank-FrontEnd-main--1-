@@ -107,7 +107,7 @@ paths:
       tags:
         - Accounts and Transactions Module
       summary: Account transactions
-      description: API for retrieving list of transactions assiocated with an account
+      description: API for retrieving list of transactions assiocated with an account in the last month
       security: 
         - Bearer: []
       parameters:
