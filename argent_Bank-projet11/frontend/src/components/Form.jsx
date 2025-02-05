@@ -11,7 +11,7 @@ function Form() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();//pour envoyer une action redux//
 
   const handleSubmit = async (event) => {
     event.preventDefault();
