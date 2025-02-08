@@ -19,14 +19,8 @@ function App() {
   // Déclaration du dispatch pour envoyer des actions Redux
   const dispatch = useDispatch();
   // Utilisation de useEffect pour vérifier si un token existe 
-   useEffect(() => {
-    // Récupération du token depuis localStorage ou sessionStorage
-    const token = localStorage.getItem("token") || sessionStorage.getItem("token");
-     // Si un token est trouvé, dispatch de l'action loginSuccess avec le token
-    if (token) {
-      dispatch(loginSuccess(token));
-    }
-  }, []);
+   
+  
 
   return (
     <div>
