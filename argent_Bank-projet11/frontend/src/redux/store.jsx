@@ -4,7 +4,6 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 // Importation des réducteurs pour l'authentification et 
 // les données utilisateur
 import { authReducer } from './reducers/auth.reducer.jsx';
-import { authReducer } from './reducers/auth.reducer.jsx';
 import { userReducer } from './reducers/user.reducer.jsx';
 
 const rootReducer = combineReducers({
